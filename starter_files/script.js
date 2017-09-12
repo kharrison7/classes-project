@@ -3,9 +3,21 @@
 // Read each set of instructions carefully!
 
 // BUILD YOUR FACTORY!
+
+// DECLARE A FACTORY CLASS
+// All automobiles manufacutered should have the following properties: make (Mazda), location (USA), airbags (true), abs (true), warranty (60,000 miles / 3 years)
+// This factory should also run two functions: massBuild() and customerBuild()
+
+// massBuild should receive the following parameters: quantity, options.
+// It should print "Building QUANTITY COLOR TRIM MODEL's" i.e: "Building 100 blue Touring CX-5's"
+
+// customerBuild should receive the following parameters: color, options.
+// It should print "Building one COLOR TRIM MODEL with the following options: OPTIONS", i.e: "Building one red Sport Mazda3 with the following options: heated seats, rear spoiler"
+
+// Create the Factory class bellow:
 class Factory {
-  constructor(make, location, airbags, abs, warranty) {
-    this.make = makes;
+  constructor(make = 'Mazda', location = 'USA', airbags = true, abs = true, warranty = '60,000 miles / 3 years') {
+    this.make = make;
     this.location = location;
     this.airbags = airbags;
     this.abs = abs;
@@ -19,21 +31,6 @@ class Factory {
   };
 };
 
-// DECLARE A FACTORY CLASS
-// All automobiles manufacutered should have the following properties: make (Mazda), location (USA), airbags (true), abs (true), warranty (60,000 miles / 3 years)
-// This factory should also run two functions: massBuild() and customerBuild()
-
-// massBuild should receive the following parameters: quantity, options.
-// It should print "Building QUANTITY COLOR TRIM MODEL's" i.e: "Building 100 blue Touring CX-5's"
-
-// customerBuild should receive the following parameters: color, options.
-// It should print "Building one COLOR TRIM MODEL with the following options: OPTIONS", i.e: "Building one red Sport Mazda3 with the following options: heated seats, rear spoiler"
-
-// Create the Factory class bellow:
-
-
-
-
 // CREATE A SUB-CLASS CALLED CAR
 // It should extend from Factory.
 // The constructor should have the following properties: model, doors, color, enginetype, transmission, trim, wheelstrim, audio, seatstrim, moonroof. The values should be specified when creating an instance of Car.
@@ -41,8 +38,25 @@ class Factory {
 // Car should also have the following additional properties: enginesize (4), navigation (true), backupcamera (true), warranty (100,000 miles / 5 years)
 // Write your code below:
 
-
-
+class Car extends Factory{
+  constructor(model, doors, color, enginetype, transmission, trim, wheelstrim, audio, seatstrim, moonroof) {
+    super(warranty);
+    this.model = model;
+    this.doors = doors;
+    this.color = color;
+    this.engintype = engintype;
+    this.transmission = transmission;
+    this.trim = trim;
+    this.wheelstrim = wheelstrim;
+    this.audio = audio;
+    this.seatstrim = seatstrim;
+    this.moonroof = moonroof;
+    this.enginesize = 4;
+    this.navigation =true;
+    this.backupcamera = true;
+    this.warranty = '100,000 miles / 5 years';
+  };
+};
 
 // CREATE A SUB-CLASS CALLED SPORT
 // It should extend from Car.
@@ -50,7 +64,22 @@ class Factory {
 // Sports cars should also have the following additional properties: moonroof (false), enginetype (gasoline), convertible (true), doors (2)
 // Write your code below:
 
-
+class Sport extends Car{
+  constructor(model, trim, transmission, top, color, seatstrim, audio, wheelstrim) {
+    this.model = model;
+    this.transmission = transmission;
+    this.top = top;
+    this.color = color;
+    this.trim = trim;
+    this.wheelstrim = wheelstrim;
+    this.audio = audio;
+    this.seatstrim = seatstrim;
+    this.moonroof = false;
+    this.engintype = 'gasoline';
+    this.convertible = 'true';
+    this.doors = 2;
+  };
+};
 
 
 // CREATE A SUB-CLASS CALLED TRUCK
@@ -61,7 +90,20 @@ class Factory {
 // It should also inherit the warranty property so we can extend it to: 150,000 miles / 6 years.
 // Write your code below:
 
-
+class Truck extends Factory{
+  constructor(model, color, enginetype, hitch, bed, navigation) {
+    super(warranty);
+    this.model = model;
+    this.color = color;
+    this.engintype = engintype;
+    this.hitch = htich;
+    this.bed = bed;
+    this.navigation = navigation;
+    this.backupcamera = true;
+    this.audio = 'basic';
+    this.warranty = '150,000 miles / 6 years';
+  };
+};
 
 
 // LET'S BUILD SOME CARS AND TRUCKS!
