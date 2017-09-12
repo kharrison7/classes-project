@@ -22,11 +22,11 @@ class Factory {
     this.airbags = airbags;
     this.abs = abs;
     this.warranty = warranty;
-    this.massBuild = function(quantity, options) {
-     return console.log("Building "+QUANTITY + " " + COLOR + " " + TRIM + " " + MODEL+"'s");
+    this.massBuild = function(quantity) {
+     return "Building "+quantity+ " " + this.color + " " + this.trim + " " + this.model +"'s";
     };
     this.customerBuild = function(color, options) {
-     return console.log("Building one " + COLOR + " " + TRIM + " " + MODEL+"with the following options: " + OPTIONS);
+     return "Building one " + color + " " + this.trim + " " + this.model +" with the following options: " + options;
     };
   };
 };
@@ -40,11 +40,11 @@ class Factory {
 
 class Car extends Factory{
   constructor(model, doors, color, enginetype, transmission, trim, wheelstrim, audio, seatstrim, moonroof) {
-    super(warranty);
+    super();
     this.model = model;
     this.doors = doors;
     this.color = color;
-    this.engintype = engintype;
+    this.enginetype = enginetype;
     this.transmission = transmission;
     this.trim = trim;
     this.wheelstrim = wheelstrim;
@@ -92,7 +92,7 @@ class Sport extends Car{
 
 class Truck extends Factory{
   constructor(model, color, enginetype, hitch, bed, navigation) {
-    super(warranty);
+    super();
     this.model = model;
     this.color = color;
     this.engintype = engintype;
@@ -114,10 +114,12 @@ class Truck extends Factory{
 
 // Write your 'mazda3' instance below:
 
+let mazda3 = new Car(model = 'mazda3', doors = 2, color = 'red', enginetype = 'hybrid', transmission = 'automatic', trim = 'touring', wheels = 'base', audio = 'premium', seats = 'leather', moonroof = true);
 
 // Print mazda3. I should have all the above properties.
 // Write your code below:
-
+let maz3 = JSON.stringify(mazda3);
+console.log("Mazda3: " + maz3);
 
 
 
@@ -126,7 +128,7 @@ class Truck extends Factory{
 // It should print: "Building 35000 Red Touring Mazda3's."
 // Write your code below:
 
-
+console.log(mazda3.massBuild(35000));
 
 
 
@@ -134,8 +136,9 @@ class Truck extends Factory{
 // It should read: "Building one yellow Touring Mazda3 with the following options: weather package, satellite radio, rear spoiler"
 // Write your code below:
 
-
-
+console.log(
+  mazda3.customerBuild("yellow", ["weather package", "satellite radio", "rear spoiler"])
+);
 
 
 // MIATA-RF MASS PRODUCTION
