@@ -66,6 +66,7 @@ class Car extends Factory{
 
 class Sport extends Car{
   constructor(model, trim, transmission, top, color, seatstrim, audio, wheelstrim) {
+    super();
     this.model = model;
     this.transmission = transmission;
     this.top = top;
@@ -93,10 +94,11 @@ class Sport extends Car{
 class Truck extends Factory{
   constructor(model, color, enginetype, hitch, bed, navigation) {
     super();
+    this.trim = trim;
     this.model = model;
     this.color = color;
-    this.engintype = engintype;
-    this.hitch = htich;
+    this.enginetype = enginetype;
+    this.hitch = hitch;
     this.bed = bed;
     this.navigation = navigation;
     this.backupcamera = true;
@@ -148,13 +150,14 @@ console.log(
 // Write your 'miataRf' instance below:
 // Write your code below:
 
-
+let midtaRF = new Sport(model = 'Miata-RF', trim = 'Grand Touring', tansmission = 'manual', top = 'hard top', color = 'red', seats = 'leather', audio = 'premium', wheels = 'premium');
 
 
 
 // Print miataRf. It should have all of the above properties. Plus, the extended warranty.
 // Write your code below:
-
+let midRF = JSON.stringify(midtaRF);
+console.log("midtaRF: " + midRF);
 
 
 
@@ -163,7 +166,7 @@ console.log(
 // It should print: "Building 15000 Red Grand Touring Miata-RF's."
 // Write your code below:
 
-
+console.log(midtaRF.massBuild(15000));
 
 
 
@@ -171,7 +174,9 @@ console.log(
 // It should read: "Building one black Grand Touring Miata-RF with the following options: hid headlights, sports suspension, leather steering wheel, heated seats, adaptive cruise control"
 // Write your code below:
 
-
+console.log(
+  midtaRF.customerBuild("black", ["hid headlights", "sports suspension", "leather steering wheel", "heated seats", "adaptive cruise control"])
+);
 
 
 // TRAIL BLAZER MASS PRODUCTION
@@ -181,20 +186,24 @@ console.log(
 // Write your 'trailBlazer' instance below:
 // Write your code below:
 
+// constructor(model, color, enginetype, hitch, bed, navigation) {
 
+let trailBlazer = new Truck(model = "Trail Blazer", color = "blue", trim = "Sport", enginesize = "8", hitch = "true", bed = "standard", navigation = "true", doors = "2");
 
 
 
 // Print trailBlazer. It should have all the above properties. Plus, the extended warranty.
 // Write your code below:
 
-
+let tb = JSON.stringify(trailBlazer);
+console.log("trailBlazer: " + tb);
 
 
 // Print trailBlazer, calling massBuid(). It should build 35000 trucks.
 // It should print: "Building 35000 blue Sport Trail Blazer's."
 // Wrint your code below:
 
+console.log(trailBlazer.massBuild(35000));
 
 
 
@@ -202,3 +211,7 @@ console.log(
 // Print trailBlazer, calling customerBuild(). It should build a red Trail Blazer with the following options, as an array: seat warmers, tinted windows, fog lamps.
 // It should print: "Building one red Sport Trail Blazer with the following options: seat warmers, tinted windows, fog lamps"
 // Write your code below:
+
+console.log(
+  trailBlazer.customerBuild("red", ["seat warmers", "tinted windows", "fog lamps"])
+);
