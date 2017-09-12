@@ -76,7 +76,7 @@ class Sport extends Car{
     this.audio = audio;
     this.seatstrim = seatstrim;
     this.moonroof = false;
-    this.engintype = 'gasoline';
+    this.enginetype = 'gasoline';
     this.convertible = 'true';
     this.doors = 2;
   };
@@ -117,11 +117,15 @@ class Truck extends Factory{
 // Write your 'mazda3' instance below:
 
 let mazda3 = new Car(model = 'mazda3', doors = 2, color = 'red', enginetype = 'hybrid', transmission = 'automatic', trim = 'touring', wheels = 'base', audio = 'premium', seats = 'leather', moonroof = true);
+let mazda4 = new Car('mazda3', 2, 'red', 'hybrid', 'automatic', 'touring', 'base', 'premium', 'leather', true);
 
 // Print mazda3. I should have all the above properties.
 // Write your code below:
 let maz3 = JSON.stringify(mazda3);
 console.log("Mazda3: " + maz3);
+console.log(mazda3);
+console.log(mazda4);
+
 
 
 
@@ -158,6 +162,8 @@ let midtaRF = new Sport(model = 'Miata-RF', trim = 'Grand Touring', tansmission 
 // Write your code below:
 let midRF = JSON.stringify(midtaRF);
 console.log("midtaRF: " + midRF);
+console.log(midtaRF);
+
 
 
 
@@ -197,6 +203,7 @@ let trailBlazer = new Truck(model = "Trail Blazer", color = "blue", trim = "Spor
 
 let tb = JSON.stringify(trailBlazer);
 console.log("trailBlazer: " + tb);
+console.log(trailBlazer);
 
 
 // Print trailBlazer, calling massBuid(). It should build 35000 trucks.
